@@ -13,6 +13,12 @@ This tool retrieves data via the coinmarketcap.com domain. It indicates the volu
 
 ![mcap image](mcap.png)
 
+## Components
+
+* github.com/gdamore/tcell
+* github.com/rivo/tview"
+* github.com/gocolly/colly
+
 ## Bugz and Contact
 
 Oğuzhan (aspsrc@gmail.com)
