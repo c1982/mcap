@@ -1,15 +1,16 @@
 # mcap
-Turkish Cryptocurrency Market Capitalizations
-
-
 Unfortunately CoinMarketCap.com can not list the total exchange markets for the country. There is also no API function related to this topic.
 
-This tool, which operates in Turkey through my coinmarketcap.co taking data shows the volume of the exchange market.
+This tool retrieves data via the coinmarketcap.com domain. It indicates the volume of exchange market in Turkey.
 
 ## Download
 
-https://github.com/c1982/mcap/releases
+* https://github.com/c1982/mcap/releases
 
 ## Screen
 
 ![mcap image](mcap.png)
+
+## Bugz and Contact
+
+Oğuzhan (aspsrc@gmail.com)
