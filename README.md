@@ -5,7 +5,9 @@ This tool retrieves data via the coinmarketcap.com domain. It indicates the volu
 
 ## Download
 
-* https://github.com/c1982/mcap/releases
+ * OSX x64 https://github.com/c1982/mcap/releases/download/v1.0/mcap_darwin
+ * Linux x64 https://github.com/c1982/mcap/releases/download/v1.0/mcap_linux
+ * Windows x64 https://github.com/c1982/mcap/releases/download/v1.0/mcap_windows.exe
 
 ## Screen
 
