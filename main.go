@@ -2,17 +2,32 @@ package main
 
 import (
 	"bufio"
+	"log"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 
+	"github.com/asdine/storm"
 	"github.com/gdamore/tcell"
 	"github.com/gocolly/colly"
 	"github.com/rivo/tview"
 )
 
+const databaseName = "stats.db"
+
+var conn *storm.DB
+
 func main() {
+
+	var err error
+	conn, err = storm.Open(databaseName)
+
+	if err != nil {
+		panic(err)
+	}
+
+	conn.Init(data{})
 
 	var exchanges = []string{
 		"koineks",
@@ -31,7 +46,7 @@ func main() {
 
 	loadData(cols, exchanges)
 
-	err := app.SetRoot(cols, true).Run()
+	err = app.SetRoot(cols, true).Run()
 
 	if err != nil {
 		panic(err)
@@ -70,13 +85,18 @@ func dataList(exchanges []string) (list capdata) {
 		name := exchanges[i]
 		cap, capstr, err := getCapital(c, name)
 
-		d.market = name
-		d.sizeStr = capstr
+		d.Market = name
+		d.SizeStr = capstr
 
 		if err != nil {
-			d.size = -1
+			d.Size = -1
 		} else {
-			d.size = cap
+			d.Size = cap
+		}
+
+		err = conn.Save(d)
+		if err != nil {
+			log.Println("save error:", err)
 		}
 
 		list = append(list, d)

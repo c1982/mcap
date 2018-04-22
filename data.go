@@ -6,25 +6,27 @@ import (
 )
 
 type data struct {
-	market  string
-	size    float64
-	sizeStr string
+	ID        int
+	CreatedAt int64
+	Market    string
+	Size      float64
+	SizeStr   string
 }
 
 type capdata []data
 
 func (c capdata) Len() int              { return len(c) }
 func (c capdata) Swap(i, j int)         { c[i], c[j] = c[j], c[i] }
-func (c capdata) Less(i, j int) bool    { return c[i].size > c[j].size }
-func (c capdata) ToCap(i int) string    { return c[i].sizeStr }
-func (c capdata) ToMarket(i int) string { return fmt.Sprintf("%s   ", c[i].market) }
+func (c capdata) Less(i, j int) bool    { return c[i].Size > c[j].Size }
+func (c capdata) ToCap(i int) string    { return c[i].SizeStr }
+func (c capdata) ToMarket(i int) string { return fmt.Sprintf("%s   ", c[i].Market) }
 
 func (c capdata) Total() string {
 
 	var total float64
 
 	for _, v := range c {
-		total += v.size
+		total += v.Size
 	}
 
 	return " $" + seperateFloat(total)
