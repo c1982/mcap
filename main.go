@@ -18,6 +18,8 @@ const databaseName = "stats.db"
 
 var conn *storm.DB
 
+//TODO: exchange anahtarlarını parametrik al
+//TODO: bolt'a kaydedilen verileri ui'de gösrer history
 func main() {
 
 	var err error
